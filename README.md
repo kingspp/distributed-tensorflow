@@ -5,11 +5,11 @@ Distributed Tensorflow using Kubernetes as Cluster Orchestrator
 ####Prerequisities:
 
 ####1. [Docker](https://github.com/docker/docker)
-  a. [Containerization](https://www.digitalocean.com/community/tutorials/the-docker-ecosystem-an-overview-of-containerization)<br>
-  b. [Docker Image](https://docs.docker.com/engine/tutorials/dockerimages/)<br>
-  c. [DockerFile](https://docs.docker.com/engine/reference/builder/)<br>
-  d. [Docker Build](https://docs.docker.com/engine/tutorials/dockerimages/)<br>
-  e. [Docker Tags, Push, Pull](https://docs.docker.com/engine/getstarted/step_six/)<br>
+  * [Containerization](https://www.digitalocean.com/community/tutorials/the-docker-ecosystem-an-overview-of-containerization)
+  * [Docker Image](https://docs.docker.com/engine/tutorials/dockerimages/)
+  * [DockerFile](https://docs.docker.com/engine/reference/builder/)
+  * [Docker Build](https://docs.docker.com/engine/tutorials/dockerimages/)
+  * [Docker Tags, Push, Pull](https://docs.docker.com/engine/getstarted/step_six/)
 
 ####2. [Vagrant](https://github.com/mitchellh/vagrant)
   a. [Vagrant Configuration](https://www.vagrantup.com/docs/vagrantfile/) <br>
