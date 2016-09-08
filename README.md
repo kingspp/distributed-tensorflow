@@ -2,6 +2,8 @@
 
 Distributed Tensorflow using Kubernetes as Cluster Orchestrator
 
+#### Note: Only OSX and Linux are supported. This demonstration supports OSX and Ubuntu derived linux
+
 ####Prerequisities:
 
 ####1. [Docker](https://github.com/docker/docker)
