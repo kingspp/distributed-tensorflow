@@ -4,14 +4,10 @@
 @version: 0.0.1
 
 """
-
-import jsonpickle as jp
 import curses
 import time
-import os
 import subprocess
 from threading import Thread
-from random import randint
 
 stdscr = curses.initscr()
 
@@ -55,12 +51,13 @@ class Query(Thread):
     def run(self):
         global _process_dict
         global _counter
-        while (len(_counter) <= 7):
+        while len(_counter) <= 7:
             for k, v in _process_dict.items():
                 if self.query_docker_status(v.docker_image) != b'':
                     _counter.add(k)
                     _process_dict[k] = Process(process_name=v.process_name, docker_image=v.docker_image,
                                                service_name=v.service_name, docker_status='Completed\t', service_status='Started\t')
+            time.sleep(10)
 
 
 def blink(char, period_in_sec):
@@ -68,6 +65,7 @@ def blink(char, period_in_sec):
     time.sleep(period_in_sec)
     print(' ' * 50, end='\r')
     time.sleep(period_in_sec)
+
 
 def display_manager():
     display_str = \
@@ -104,17 +102,7 @@ def display_manager():
 
 Query().start()
 
-while(len(_counter)<=7):
+while len(_counter) <= 7:
     display_manager()
 time.sleep(3)
 display_manager()
-
-
-
-# #print(subprocess.check_output('vagrant', shell=False))
-# #subprocess.check_output('vagrant ssh -c "docker images -q gcr.io/google_containers/pause-amd64"', shell=False)
-# #os.system('clear')
-#
-# print((os.popen('vagrant ssh -c "docker images -q gcr.io/google_containers/pause-amd64" 2> /dev/null').read()))
-# #proc = subprocess.Popen(['vagrant ssh -c "docker images -q gcr.io/google_containers/pause-amd64"'], stdout=subprocess.PIPE, shell=True)
-# #(out, err) = proc.communicate()
