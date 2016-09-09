@@ -11,8 +11,8 @@ echo 'Welcome to Kubernetes Single Node Cluster Setup'
 echo 'Removing Previous Vagrant Setup . . .' && vagrant destroy
 rm -rf .vagrant/
 echo 'Removing Previous SSL Certificates . . .' && rm -rf ssl/
-sed 's/.*NODE_IP =.*/NODE_IP = "'$NODE_IP'"/' VagrantFile >/dev/null 2>&1
-sed 's/.*NODE_MEMORY_SIZE =.*/NODE_MEMORY_SIZE = '$NODE_MEMORY_SIZE'/' VagrantFile >/dev/null 2>&1
+sed -i.bak 's/.*NODE_IP =.*/NODE_IP = "'$NODE_IP'"/' VagrantFile
+sed -i.bak 's/.*NODE_MEMORY_SIZE =.*/NODE_MEMORY_SIZE = '$NODE_MEMORY_SIZE'/' VagrantFile
 echo 'Initializing Vagrant . . .' && vagrant box update
 echo 'Starting Vagrant . . .' && vagrant up
 echo 'Generating Kubernetes Configuration . . .'

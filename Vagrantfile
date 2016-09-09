@@ -11,7 +11,7 @@ Vagrant.require_version ">= 1.6.0"
 $update_channel = "alpha"
 
 CLUSTER_IP="10.3.0.1"
-NODE_IP = "172.17.24.88"
+NODE_IP = "172.22.22.22"
 NODE_MEMORY_SIZE = 2048
 USER_DATA_PATH = File.expand_path("user-data")
 SSL_TARBALL_PATH = File.expand_path("ssl/controller.tar")
