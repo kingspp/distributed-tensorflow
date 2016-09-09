@@ -92,3 +92,4 @@ ENV/
 .vagrant/
 ssl/
 *.bak
+*.DS_Store
