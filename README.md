@@ -6,6 +6,12 @@ Distributed Tensorflow using Kubernetes as Cluster Orchestrator
 
 ####Setup:
 ```bash
+# Clone Github Repository
+git clone https://github.com/kingspp/distributed-tensorflow && cd distributed-tensorflow
+
+# Fetch docker images
+wget https://www.dropbox.com/s/pmgo2pfm4y7zwaw/docker_images.tar.xz
+
 # Execute Package checker to check for requried packages
 sh package_checker.sh
 
