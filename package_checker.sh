@@ -56,6 +56,7 @@ else
     exit 1
 fi
 
+[ -f docker_images.tar.xz ] && echo "Checking docker images" || echo "Downloading docker images" && wget https://www.dropbox.com/s/pmgo2pfm4y7zwaw/docker_images.tar.xz
 
 echo 'Checking Tensorflow Installation . . .'
 c_out="$(python3 -c 'import tensorflow')"
