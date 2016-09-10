@@ -15,7 +15,7 @@ NODE_IP = "172.22.22.22"
 NODE_MEMORY_SIZE = 2048
 USER_DATA_PATH = File.expand_path("user-data")
 SSL_TARBALL_PATH = File.expand_path("ssl/controller.tar")
-DOCKER_IMAGES = File.expand_path("docker_images.tar.gz")
+DOCKER_IMAGES = File.expand_path("docker_images.tar.xz")
 
 system("mkdir -p ssl && lib/init-ssl-ca ssl") or abort ("failed generating SSL CA artifacts")
 system("lib/init-ssl ssl apiserver controller IP.1=#{NODE_IP},IP.2=#{CLUSTER_IP}") or abort ("failed generating SSL certificate artifacts")
@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, :inline => "mkdir -p /etc/kubernetes/ssl && tar -C /etc/kubernetes/ssl -xf /tmp/ssl.tar", :privileged => true
 
   config.vm.provision :file, :source => DOCKER_IMAGES, :destination => "/tmp/docker_images.tar.xz"
-  config.vm.provision :shell, :inline => "mkdir -p /tmp/docker_images && tar -zxvf /tmp/docker_images.tar.xz -C /tmp/docker_images/", :privileged => true
+  config.vm.provision :shell, :inline => "cd /tmp/ && tar -xvf docker_images.tar.xz", :privileged => true
   config.vm.provision :shell, :inline => "docker load -i /tmp/docker_images/pause.tar", :privileged => true
   config.vm.provision :shell, :inline => "docker load -i /tmp/docker_images/addon.tar", :privileged => true
   config.vm.provision :shell, :inline => "docker load -i /tmp/docker_images/dns.tar", :privileged => true

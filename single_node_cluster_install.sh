@@ -20,7 +20,7 @@ kubectl config set-cluster ${CLUSTER_NAME}-single-cluster --server=https://${NOD
 kubectl config set-credentials ${CLUSTER_NAME}-single-admin --certificate-authority=${PWD}/ssl/ca.pem --client-key=${PWD}/ssl/admin-key.pem --client-certificate=${PWD}/ssl/admin.pem
 kubectl config set-context ${CLUSTER_NAME}-single --cluster=${CLUSTER_NAME}-single-cluster --user=${CLUSTER_NAME}-single-admin
 echo 'Changing Kubernates Context . . .' && kubectl config use-context ${CLUSTER_NAME}-single
-python3 monitor.py
+#python3 monitor.py
 echo "Kubernates Installed successfully. Please wait for 10 minutes before executing kubectl get nodes"
 
 #echo 'Waiting for Kubernetes Services . . .' && sleep 10
