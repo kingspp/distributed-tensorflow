@@ -28,6 +28,10 @@ if [[ "$platform" == "darwin" ]]; then
     {
         brew install docker
     }
+     echo 'Checking Git Package . . .' && command -v git >/dev/null 2>&1 ||
+    {
+        brew install git
+    }
 elif [[ "$platform" == "linux" ]]; then
     echo 'Checking Kubectl Package . . .' && command -v kubectl >/dev/null 2>&1 ||
     {
@@ -42,6 +46,10 @@ elif [[ "$platform" == "linux" ]]; then
     echo 'Checking Docker Package . . .' && command -v docker >/dev/null 2>&1 ||
     {
         sudo apt-get install docker
+    }
+    echo 'Checking Git Package . . .' && command -v git >/dev/null 2>&1 ||
+    {
+        sudo apt-get install git
     }
 else
     echo "Operating System not supported"
