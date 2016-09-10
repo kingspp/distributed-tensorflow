@@ -21,15 +21,17 @@ kubectl config set-credentials ${CLUSTER_NAME}-single-admin --certificate-author
 kubectl config set-context ${CLUSTER_NAME}-single --cluster=${CLUSTER_NAME}-single-cluster --user=${CLUSTER_NAME}-single-admin
 echo 'Changing Kubernates Context . . .' && kubectl config use-context ${CLUSTER_NAME}-single
 python3 monitor.py
-echo 'Waiting for Kubernetes Services . . .' && sleep 10
-echo 'Querying Kubernetes Nodes' && kubectl get nodes
-echo 'Changing Proxy' && kubectl proxy --port=$PROXY_PORT &
-echo 'Quering Kubernetes Cluster Info' && kubectl cluster-info
-echo 'Kubernetes is UP and RUNNING!!!'
-echo ' _______________________________________________________________________________________________________'
-echo '| Dashboard IP: http://localhost:8080/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard |'
-echo ' _______________________________________________________________________________________________________'
-python -c "import webbrowser; webbrowser.open(\"http://localhost:8080/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard\")"
-python -m SimpleHTTPServer 8121
+echo "Kubernates Installed successfully. Please wait for 10 minutes before executing kubectl get nodes"
+
+#echo 'Waiting for Kubernetes Services . . .' && sleep 10
+#echo 'Querying Kubernetes Nodes' && kubectl get nodes
+#echo 'Changing Proxy' && kubectl proxy --port=$PROXY_PORT &
+#echo 'Quering Kubernetes Cluster Info' && kubectl cluster-info
+#echo 'Kubernetes is UP and RUNNING!!!'
+#echo ' _______________________________________________________________________________________________________'
+#echo '| Dashboard IP: http://localhost:8080/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard |'
+#echo ' _______________________________________________________________________________________________________'
+#python -c "import webbrowser; webbrowser.open(\"http://localhost:8080/api/v1/proxy/namespaces/kube-system/services/kubernetes-dashboard\")"
+#python -m SimpleHTTPServer 8121
 
 
